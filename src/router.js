@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import AccountsList from './views/Accounts/List.vue'
+import AccountsView from './views/Accounts/View.vue'
 
 Vue.use(Router)
 
@@ -27,6 +28,12 @@ export default new Router({
       path: '/contas',
       name: 'accounts',
       component: AccountsList
+    },
+
+    {
+      path: '/contas/:id',
+      name: 'accounts',
+      component: AccountsView
     },
 
   ]
