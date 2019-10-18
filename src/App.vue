@@ -25,7 +25,7 @@
       </div>
       <div class="divider blue-grey darken-2"></div>
       <div class="collection">
-        <a href="#/" class="collection-item grey darken-2 white-text">Financeiro</a>
+        <a href="/" class="collection-item grey darken-2 white-text">Financeiro</a>
         <a href="/contas" class="collection-item">Contas</a>
       </div>
     </div>

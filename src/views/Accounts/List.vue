@@ -30,7 +30,7 @@
         </table>
         </div>
         <div class="card-action">
-        <a href="#/contas/novo">Nova conta</a>
+        <a href="/contas/novo">Nova conta</a>
         </div>
     </div>
     </div>
