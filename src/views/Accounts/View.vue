@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col s12">
-            <a :href="'/contas/{{ account.id }}/editar'" class="btn blue">Editar</a>
+            <a :href="'/contas/' +  account.id + '/editar'" class="btn blue">Editar</a>
             <a href="" class="btn red" @click.prevent="remove()">Excluir</a>
             </div>
         </div>

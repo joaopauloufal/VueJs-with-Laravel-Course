@@ -47,9 +47,9 @@ export default {
 
         },
 
-        updateAccount(context, params){
+        updateAccount(context, data){
 
-            Vue.http.put('api/accounts/' + params.id, params.data)
+            Vue.http.put('api/accounts/' + data.id, data)
 
         },
 
