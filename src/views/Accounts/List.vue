@@ -11,7 +11,7 @@
     </div>
 
     <div class="card col s12">
-
+        {{accounts}}
         <div class="card-content">
         <table class="highlight">
             <thead>
@@ -41,10 +41,26 @@ export default {
 
     name: 'accounts',
 
+    created(){
+
+        this.$store.dispatch('getAccounts');
+
+    },
+
     methods: {
 
         goTo(id) {
             this.$router.push('/contas/' + id);
+        }
+
+    },
+
+    computed: {
+
+        accounts(){
+
+            return this.$store.state.account.accountList
+
         }
 
     }

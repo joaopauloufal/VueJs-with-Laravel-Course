@@ -8,6 +8,8 @@ import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
 
+Vue.use(VueResource);
+
 sync(store, router);
 
 
@@ -15,6 +17,6 @@ new Vue({
   router,
   store,
   Vuex,
-  VueResource,
+
   render: h => h(App)
 }).$mount('#app')
