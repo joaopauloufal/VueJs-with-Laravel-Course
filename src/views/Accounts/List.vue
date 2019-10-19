@@ -11,19 +11,18 @@
     </div>
 
     <div class="card col s12">
-        {{accounts}}
         <div class="card-content">
         <table class="highlight">
             <thead>
             <tr>
-                <th>contas</th>
+                <th>Contas</th>
             </tr>
             </thead>
             <tbody>
-            <tr @click="goTo(1)">
+            <tr v-for="account in accounts.data" @click="goTo(1)">
                 <td class="valign-wrapper">
-                Conte título &nbsp;
-                <small>agência: 000 / conta: 0000 / código do banco:000</small>
+                {{ account.title }} &nbsp;
+                <small>agência: {{ account.agency }} / conta: {{ account.account_number }} / código do banco: {{ accounts.bank.code }}</small>
                 </td>
             </tr>
             </tbody>

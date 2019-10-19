@@ -21,7 +21,7 @@ export default {
     actions : {
 
         getAccounts(context){
-            Vue.http.get('localhost:8000/api/accounts').then(
+            Vue.http.get('api/accounts').then(
                 response  => {
                     context.commit('updateAccountList', response.data)
                 }
