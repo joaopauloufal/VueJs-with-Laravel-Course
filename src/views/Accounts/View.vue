@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col s12">
             <a :href="'/contas/{{ account.id }}/editar'" class="btn blue">Editar</a>
-            <a href="" class="btn red" @click.prevent="remove(1)">Excluir</a>
+            <a href="" class="btn red" @click.prevent="remove()">Excluir</a>
             </div>
         </div>
         </div>
@@ -51,9 +51,12 @@ export default {
 
     methods: {
 
-        remove(id){
+        remove(){
 
-            this.$router.push('/contas')
+            this.$store.dispatch('removeAccount', this.$route.params.id)
+                .then(() => {
+                    this.$router.push('/contas');
+                })
 
         }
 
