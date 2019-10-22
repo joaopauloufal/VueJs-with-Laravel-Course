@@ -5,6 +5,7 @@ import AccountsList from './views/Accounts/List.vue'
 import AccountsView from './views/Accounts/View.vue'
 import AccountsCreate from './views/Accounts/Create.vue'
 import AccountsEdit from './views/Accounts/Edit.vue'
+import BanksList from './views/Banks/List.vue'
 
 
 Vue.use(Router)
@@ -31,6 +32,12 @@ export default new Router({
       path: '/contas',
       name: 'accounts-list',
       component: AccountsList
+    },
+
+    {
+      path: '/bancos',
+      name: 'banks-list',
+      component: BanksList
     },
 
     {
