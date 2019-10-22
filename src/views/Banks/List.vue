@@ -19,22 +19,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="bank in banks.data">
+                    <tr v-for="(bank, $index)  in banks.data">
                         <td class="valign-wrapper">
-                            {{ bank.title }} ({{ bank.code }})
+                           {{ $index + 1 }} - {{ bank.title }} ({{ bank.code }})
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <pagination :totalPerPage="totalPerPage" :resource="this.banks"></pagination>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
+import Pagination from '@/components/Pagination.vue'
+
 export default {
 
     name: 'banks',
+
+    components: {
+
+        Pagination
+
+    },
+
+    data(){
+       return {
+           totalPerPage : 5
+       }
+    },
 
     computed: {
 
@@ -46,7 +62,7 @@ export default {
 
     created(){
 
-        this.$store.dispatch('getBanks')
+        this.$store.dispatch('getBanks', this.totalPerPage)
 
     }
 
