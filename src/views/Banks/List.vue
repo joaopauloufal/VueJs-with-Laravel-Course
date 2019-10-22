@@ -26,7 +26,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <pagination :totalPerPage="totalPerPage" :resource="this.banks"></pagination>
+                <pagination :totalPerPage="this.totalPerPage" :resourceMethod="this.resourceMethod"></pagination>
             </div>
         </div>
     </div>
@@ -48,7 +48,8 @@ export default {
 
     data(){
        return {
-           totalPerPage : 5
+           totalPerPage : 10,
+           resourceMethod: 'getBanks'
        }
     },
 
@@ -62,7 +63,7 @@ export default {
 
     created(){
 
-        this.$store.dispatch('getBanks', this.totalPerPage)
+        this.$store.dispatch('getBanks', {limit: this.totalPerPage})
 
     }
 

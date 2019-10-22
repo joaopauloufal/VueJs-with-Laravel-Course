@@ -14,7 +14,11 @@ export default {
 
     name: 'pagination',
 
-    props: ['totalPerPage', 'resource'],
+    props: ['totalPerPage', 'resourceMethod'],
+
+    created(){
+        this.$store.dispatch(this.resourceMethod, {limit: this.totalPerPage})
+    },
 
     data(){
 
@@ -32,6 +36,12 @@ export default {
 
         totalRegistries(){
             return this.resource.total || 0
+        },
+
+        resource(){
+
+            return this.$store.state.bank.bankList
+
         }
 
     },
@@ -40,6 +50,13 @@ export default {
         navigate(n){
 
             this.active = n
+
+            let config = {
+                limit: this.totalPerPage,
+                page: n
+            }
+
+            this.$store.dispatch(this.resourceMethod, config)
 
         }
     }
