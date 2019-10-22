@@ -20,19 +20,9 @@ export default {
 
     actions : {
 
-        getBanks(context, config){
+        getBanks(context){
 
-            if (!config.page){
-                config.page = 1
-            }
-
-            if (!config.limit){
-
-                config.limit = 200
-
-            }
-
-            Vue.http.get('api/banks?limit=' + config.limit + '&page=' + config.page).then(
+            Vue.http.get('api/banks?limit=200').then(
                 response  => {
                     context.commit('updateBankList', response.data)
                 }

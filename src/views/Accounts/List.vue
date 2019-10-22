@@ -27,6 +27,7 @@
                 </tr>
                 </tbody>
             </table>
+            <pagination :totalPerPage="this.totalPerPage" :resource="this.resource"></pagination>
             </div>
             <div class="card-action">
             <a href="/contas/novo">Nova conta</a>
@@ -36,13 +37,23 @@
 </template>
 
 <script>
+
+import Pagination from '@/components/Pagination.vue'
+
 export default {
 
     name: 'accounts',
 
-    created(){
+    components: {
+        Pagination
+    },
 
-        this.$store.dispatch('getAccounts');
+    data(){
+
+        return {
+            totalPerPage : 20,
+            resource : "accounts"
+        }
 
     },
 
@@ -58,7 +69,7 @@ export default {
 
         accounts(){
 
-            return this.$store.state.account.accountList
+            return this.$store.state.pagination.getList
 
         }
 

@@ -14,10 +14,10 @@ export default {
 
     name: 'pagination',
 
-    props: ['totalPerPage', 'resourceMethod'],
+    props: ['totalPerPage', 'resource'],
 
     created(){
-        this.$store.dispatch(this.resourceMethod, {limit: this.totalPerPage})
+        this.$store.dispatch('getRegistries', {resource: this.resource, limit: this.totalPerPage})
     },
 
     data(){
@@ -31,16 +31,16 @@ export default {
     computed:{
 
         total(){
-            return this.resource.last_page || 1
+            return this.registries.last_page || 1
         },
 
         totalRegistries(){
-            return this.resource.total || 0
+            return this.registries.total || 0
         },
 
-        resource(){
+        registries(){
 
-            return this.$store.state.bank.bankList
+            return this.$store.state.pagination.getList
 
         }
 
@@ -52,11 +52,12 @@ export default {
             this.active = n
 
             let config = {
+                resource : this.resource,
                 limit: this.totalPerPage,
                 page: n
             }
 
-            this.$store.dispatch(this.resourceMethod, config)
+            this.$store.dispatch('getRegistries', config)
 
         }
     }
