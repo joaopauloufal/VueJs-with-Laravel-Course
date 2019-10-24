@@ -6,6 +6,7 @@ import AccountsView from './views/Accounts/View.vue'
 import AccountsCreate from './views/Accounts/Create.vue'
 import AccountsEdit from './views/Accounts/Edit.vue'
 import BanksList from './views/Banks/List.vue'
+import Login from './views/Login/Form.vue'
 
 
 Vue.use(Router)
@@ -56,6 +57,12 @@ export default new Router({
       path: '/contas/:id/editar',
       name: 'accounts-edit',
       component: AccountsEdit
+    },
+
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
 
   ]
