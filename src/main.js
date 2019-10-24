@@ -5,13 +5,17 @@ import router from './router'
 import store from './store/index'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import LoginInterceptor from '@/interceptors.js'
 
 Vue.config.productionTip = false
 
 Vue.use(VueResource);
 
 Vue.http.options.root = 'http://localhost:8000';
-Vue.http.headers.common['Authorization'] = 'Bearer Ke031z4rDq8sm8HzGxFHVDwiLGcEfuCM35TxvEAbqxahS8a42CSxpxZ4448dAlcl20aq7bGPLvTxgCli';
+
+LoginInterceptor.check_empty_token(router)
+LoginInterceptor.check_auth()
+
 
 sync(store, router);
 

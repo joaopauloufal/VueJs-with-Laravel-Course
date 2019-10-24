@@ -26,6 +26,10 @@
 </template>
 
 <script>
+
+import { CONFIG } from '@/config.js'
+import Vue from 'vue'
+
 export default {
 
     name: 'login',
@@ -39,7 +43,19 @@ export default {
     methods:{
 
         login(){
-            console.log(this.user)
+            let data = {
+                grant_type: 'password',
+                client_id: CONFIG.client_id,
+                client_secret: CONFIG.client_secret,
+                username: this.user.username,
+                password: this.user.password,
+                scope: ''
+            }
+
+            Vue.http.post('oauth/token', data).then(res => {
+                localStorage['token'] = JSON.stringify(res.body)
+                this.$router.push('/contas')
+            })
         }
 
     }
