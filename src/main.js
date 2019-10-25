@@ -14,7 +14,7 @@ Vue.use(VueResource);
 Vue.http.options.root = 'http://localhost:8000';
 
 LoginInterceptor.check_empty_token(router)
-LoginInterceptor.check_auth()
+LoginInterceptor.check_auth(router)
 
 
 sync(store, router);

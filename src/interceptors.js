@@ -16,24 +16,32 @@ let login = function(router){
     router.push('/login')
 }
 
+let token = getToken()
+
 export default {
 
     check_empty_token(router){
 
-        let token = getToken()
+        token = getToken()
         if (!token.access_token){
             login(router)
         }
 
     },
 
-    check_auth(){
+    check_auth(router){
 
-        let token = getToken()
+        token = getToken()
 
         Vue.http.interceptors.push((request, next) => {
             request.headers.set('Authorization', 'Bearer ' + token.access_token)
-            next();
+            next(
+                res => {
+                    if (res.status === 0 || res.status === 401){
+                        login(router)
+                    }
+                }
+            );
         })
 
     }

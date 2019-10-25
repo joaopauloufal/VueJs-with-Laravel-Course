@@ -29,6 +29,8 @@
 
 import { CONFIG } from '@/config.js'
 import Vue from 'vue'
+import LoginInterceptor from '@/interceptors.js'
+
 
 export default {
 
@@ -54,6 +56,7 @@ export default {
 
             Vue.http.post('oauth/token', data).then(res => {
                 localStorage['token'] = JSON.stringify(res.body)
+                LoginInterceptor.check_auth(this.$router)
                 this.$router.push('/contas')
             })
         }
