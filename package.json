@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "ionicons": "^4.6.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "materialize-css": "^1.0.0",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
